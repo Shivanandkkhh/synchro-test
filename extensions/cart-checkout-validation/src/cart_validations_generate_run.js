@@ -18,7 +18,8 @@ export function cartValidationsGenerateRun(input) {
       if (sellingPlanAllocation) {
         return quantity > 2;
       }
-
+      // Skip validation for items without selling plans
+      return false;
     })
     .map(() => ({
       message: "Not possible to order more than one of each",
